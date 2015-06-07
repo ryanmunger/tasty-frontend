@@ -1,5 +1,7 @@
 # Front End for Tasty App
 
+# Setup
+
 * `npm install -g brunch`
 * `npm install && bower install`
 * `brunch b`
