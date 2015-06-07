@@ -1,0 +1,16 @@
+{
+  "name": "tasty-frontend",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ryanmunger@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "brunch": "^1.8.3",
+    "javascript-brunch": "^1.7.1",
+    "sass-brunch": "^1.8.10"
+  }
+}
