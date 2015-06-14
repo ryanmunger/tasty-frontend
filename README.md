@@ -2,10 +2,8 @@
 
 # Setup
 
-* `npm install -g brunch`
+* `npm install -g gulp`
 * `npm install && bower install`
-* `brunch b`
-
-Load up index.html from generated public folder.
-
-Server for index.html, etc coming soon...
+* `gulp dev`
+* `gulp`
+* `node app.js`
