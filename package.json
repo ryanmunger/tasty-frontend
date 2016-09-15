@@ -1,16 +1,17 @@
 {
   "name": "tasty-frontend",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "./node_modules/.bin/gulp build && ./node_modules/.bin/gulp",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "ryanmunger@gmail.com",
   "license": "ISC",
-  "devDependencies": {},
   "dependencies": {
     "body-parser": "^1.12.4",
+    "bower": "^1.7.9",
     "connect-livereload": "^0.5.3",
     "express": "^4.12.4",
     "gulp": "^3.9.0",

@@ -9,22 +9,13 @@ var gulp = require('gulp'),
 
 var liveReloadPort = 35729;
 
-gulp.task('dev', [
-    'views',
-    'styles',
-    'core-js',
-    'tasty-js'
-], function() {});
-
 gulp.task('views', function() {
-    gulp.src('app/index.html')
-    .pipe(gulp.dest('dist'));
-    gulp.src('app/**/*.html', {base: 'app'})
+    gulp.src(['app/index.html', 'app/views/**/*.html'], { base: 'app' })
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('styles', function() {
-    gulp.src('app/styles/*.sass')
+    gulp.src('app/styles/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(prefix())
@@ -34,26 +25,26 @@ gulp.task('styles', function() {
 
 gulp.task('core-js', function() {
     gulp.src([
-        'lib/angular/angular.js',
-        'lib/angular-route/angular-route.js'
+        'app/lib/angular/angular.js',
+        'app/lib/angular-route/angular-route.js'
     ])
     .pipe(concat('core.js'))
     .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('tasty-js', function() {
-    gulp.src(['app/app.js', 'app/**/*.js'])
-    .pipe(concat('tasty.js'))
+    gulp.src(['app/app.js', 'app/views/**/*.js'])
+    .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('watch', function() {
     refresh.listen(liveReloadPort);
-
     gulp.watch(['app/**/*.js'], ['tasty-js']);
-    gulp.watch(['app/styles/**/*.sass'], ['styles']);
+    gulp.watch(['app/styles/**/*.scss'], ['styles']);
     gulp.watch(['app/**/*.html'], ['views']);
     gulp.watch('dist/**').on('change', refresh.changed);
 });
 
 gulp.task('default', ['watch']);
+gulp.task('build', ['core-js', 'tasty-js', 'views', 'styles']);

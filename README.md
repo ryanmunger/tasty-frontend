@@ -2,8 +2,6 @@
 
 # Setup
 
-* `npm install -g gulp`
-* `npm install && bower install`
-* `gulp dev`
-* `gulp`
-* `node app.js`
+* `npm install`
+* `npm run gulp`
+* `npm start`
